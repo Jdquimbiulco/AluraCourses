@@ -1,10 +1,10 @@
 class Cuenta {
 	
 	//ATRIBUTOS
-	double saldo;
-	int agencia;
-	int numero;
-	Cliente titular;
+	private double saldo;
+	private int agencia;
+	private int numero;
+	Cliente titular = new Cliente();
 	
 	//METODOS
 	
@@ -31,5 +31,23 @@ class Cuenta {
 			
 		}
 		return false;
+	}
+	
+	//SETTERS AND GETTERS
+	
+	public double getSaldo(){
+		return this.saldo;
+	}
+	
+	public void setAgencia(int agencia){
+		if (agencia > 0) {
+		this.agencia = agencia;
+	} else {
+		System.out.println("No se permite valores negativos");
+	}
+  }
+	
+	public int getAgencia() {
+		return agencia;
 	}
 }

@@ -1,8 +1,31 @@
 
 public class Cliente {
 	
-	String nombre;
-	String documento;
-	String telefono;
+	private String nombre;
+	private String documento;
+	private String telefono;
+	
+//SETTERS AND GUETTERS
 
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getDocumento() {
+		return documento;
+	}
+	public void setDocumento(String documento) {
+		this.documento = documento;
+	}
+	public String getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+
+	
 }
