@@ -11,8 +11,11 @@ public class Gerente extends Funcionario {
 		return this.clave == clave;
 	}
 	
+	//Sobre-escritura de metodos
 	public double getBonificacion() {
-		return super.getSalario();
+		System.out.println("Ejecutando desde GERENTE");
+		return super.getSalario() + super.getBonificacion();
 	}
+	
 	
 }
