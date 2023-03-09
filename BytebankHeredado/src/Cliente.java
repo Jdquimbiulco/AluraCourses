@@ -1,5 +1,5 @@
 
-public class Cliente {
+public class Cliente  implements Autenticable{
 	
 	private String nombre;
 	private String documento;
@@ -24,6 +24,16 @@ public class Cliente {
 	}
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+	@Override
+	public boolean logIn(String clave) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public void setClave(String clave) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

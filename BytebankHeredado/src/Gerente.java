@@ -1,12 +1,12 @@
 
-public class Gerente extends Funcionario {
+public class Gerente extends Funcionario implements Autenticable{
 	
-	private String clave;
-	
+	private String clave = "Alura";
+
 	public void setClave(String clave) {
 		this.clave = clave;
 	}
-	
+
 	public boolean logIn(String clave) {
 		return this.clave == clave;
 	}
