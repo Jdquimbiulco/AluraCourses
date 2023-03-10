@@ -1,14 +1,18 @@
 
 public class Gerente extends Funcionario implements Autenticable{
 	
-	private String clave = "Alura";
+	private AuntenticacionUtil util;
+	
+	public Gerente() {
+		this.util = new AuntenticacionUtil();
+	}
 
 	public void setClave(String clave) {
-		this.clave = clave;
+		this.util.setClave(clave);
 	}
 
 	public boolean logIn(String clave) {
-		return this.clave == clave;
+		return this.util.logIn(clave);
 	}
 	
 	//Sobre-escritura de metodos

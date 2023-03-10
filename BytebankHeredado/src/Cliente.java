@@ -4,6 +4,11 @@ public class Cliente  implements Autenticable{
 	private String nombre;
 	private String documento;
 	private String telefono;
+	private AuntenticacionUtil util;
+	
+	public Cliente(){
+		this.util = new AuntenticacionUtil();
+	}
 	
 //SETTERS AND GUETTERS
 
@@ -27,12 +32,11 @@ public class Cliente  implements Autenticable{
 	}
 	@Override
 	public boolean logIn(String clave) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.util.logIn(clave);
 	}
 	@Override
 	public void setClave(String clave) {
-		// TODO Auto-generated method stub
+		 this.util.setClave(clave);
 		
 	}
 
