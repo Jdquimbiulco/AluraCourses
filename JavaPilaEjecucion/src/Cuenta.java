@@ -1,7 +1,7 @@
 
 public class Cuenta {
 	
-	public void depositar() {
+	void depositar() throws MiException2 {
 		
 	}
 }

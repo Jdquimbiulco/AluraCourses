@@ -6,9 +6,9 @@ public class CuentaCorriente extends Cuenta  implements Tributacion{
 	}
 	
 	@Override
-	public boolean retirar(double valor) {
+	public void retirar(double valor) {
 		double comision = 0.2;
-		return super.retirar(valor + comision);
+		super.retirar(valor + comision);
 	}
 
 	@Override

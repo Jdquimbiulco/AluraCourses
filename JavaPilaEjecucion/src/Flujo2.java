@@ -43,7 +43,7 @@ public class Flujo2 {
 				String test = null;
 				System.out.println(test.toString());
 				
-			} catch(ArithmeticException | NullPointerException exception) { //atrapa el error
+			} catch(ArithmeticException | NullPointerException exception) { //atrapa dos excepciones Multi-Catch
 				
 				System.out.println("ATRAPO EXCEPCION");
 				System.out.println(exception.getMessage());

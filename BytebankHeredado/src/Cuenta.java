@@ -20,15 +20,23 @@ public abstract class Cuenta {
 	//METODOS
 	
 	public abstract void depositar(double valor);
+
+//Metodo previo para retirar dnero sin excepcion.
+//	public boolean retirar(double valor) {
+//		if (this.saldo >= valor) {
+//			this.saldo -= valor;
+//			return true;
+//		}else {
+//			System.out.println("La cantidad ingresada es superior al saldo disponible");
+//			return false;
+//		}
+//	}
 	
-	public boolean retirar(double valor) {
-		if (this.saldo >= valor) {
-			this.saldo -= valor;
-			return true;
-		}else {
-			System.out.println("La cantidad ingresada es superior al saldo disponible");
-			return false;
+	public void retirar (double valor) {
+		if (this.saldo < valor) {
+			throw new SaldoInsuficienteException("No tiene saldo en su cuenta");
 		}
+			this.saldo -= valor;
 	}
 	
 	public boolean transferir(double valor, Cuenta cuenta) {
