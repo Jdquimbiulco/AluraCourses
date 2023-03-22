@@ -1,10 +1,10 @@
 package Model;
 
-public class Clase implements Comparable<Clase> {
+public class Aula implements Comparable<Aula> {
 	
 	private String nombre;
 
-	public Clase(String nombre) {
+	public Aula(String nombre) {
 		this.nombre = nombre;
 		
 	}
@@ -23,7 +23,7 @@ public class Clase implements Comparable<Clase> {
 	}
 
 	@Override
-	public int compareTo(Clase o) {
+	public int compareTo(Aula o) {
 		return this.nombre.compareTo(o.getNombre());
 	}
 	

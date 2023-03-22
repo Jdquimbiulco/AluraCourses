@@ -1,11 +1,12 @@
 package br.com.alura.collections;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import Model.Aula;
 import Model.Curso;
 
-public class Ejemplo6 {
+public class Ejemplo7 {
 	public static void main(String[] args) {
 		
 		System.out.println("Interface List");
@@ -15,6 +16,18 @@ public class Ejemplo6 {
 		curso1.addAula(new Aula("Phyton"));
 		curso1.addAula(new Aula("Polymorphism"));
 
+		List<Aula> aulaList = curso1.getAulaList();
+		
+		
+		//Is not possible to add new elements to the list because is encapsulated
+		try {
+			aulaList.add(new Aula("Big Data"));
+		} catch (UnsupportedOperationException excep) {
+			excep.printStackTrace();
+		}
+		
+		
+		
 		ArrayList<Curso> cursos = new ArrayList<>();
 		cursos.add(curso1);
 
