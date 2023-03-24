@@ -3,6 +3,7 @@ package Model;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 public class Curso implements Comparable<Curso> {
@@ -10,6 +11,7 @@ public class Curso implements Comparable<Curso> {
 	private String nombre;
 	private int tiempo;
 	private List<Aula> AulaList = new ArrayList<>();
+	private Collection<Alumno> alumnos = new LinkedHashSet<>();
 	
 
 	
@@ -68,5 +70,22 @@ public class Curso implements Comparable<Curso> {
 	public void addAula(Aula clase) {
 		this.AulaList.add(clase);
 	}
+	
+	public void addAlumno(Alumno alumnos) {
+		this.alumnos.add(alumnos);
+	}
+
+	public Collection<Alumno> getAlumnos() {
+		return alumnos;
+	}
+
+	public void setAlumnos(Collection<Alumno> alumnos) {
+		this.alumnos = alumnos;
+	}
+
+	public void setAulaList(List<Aula> aulaList) {
+		AulaList = aulaList;
+	}
+	
 	
 }
