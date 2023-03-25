@@ -3,8 +3,10 @@ package Model;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 
 public class Curso implements Comparable<Curso> {
 	
@@ -12,6 +14,7 @@ public class Curso implements Comparable<Curso> {
 	private int tiempo;
 	private List<Aula> AulaList = new ArrayList<>();
 	private Collection<Alumno> alumnos = new LinkedHashSet<>();
+	private Map<String, Alumno> alumnoMap = new HashMap<>();
 	
 
 	
@@ -73,6 +76,7 @@ public class Curso implements Comparable<Curso> {
 	
 	public void addAlumno(Alumno alumnos) {
 		this.alumnos.add(alumnos);
+		this.alumnoMap.put(alumnos.getNombreAlumno(), alumnos);
 	}
 
 	public Collection<Alumno> getAlumnos() {
@@ -86,6 +90,15 @@ public class Curso implements Comparable<Curso> {
 	public void setAulaList(List<Aula> aulaList) {
 		AulaList = aulaList;
 	}
+
+	public Map<String, Alumno> getAlumnoMap() {
+		return alumnoMap;
+	}
+
+	public void setAlumnoMap(Map<String, Alumno> alumnoMap) {
+		this.alumnoMap = alumnoMap;
+	}
+	
 	
 	
 }
