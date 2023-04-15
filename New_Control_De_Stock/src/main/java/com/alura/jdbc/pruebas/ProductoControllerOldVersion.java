@@ -1,4 +1,4 @@
-package com.alura.jdbc.controller;
+package com.alura.jdbc.pruebas;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
