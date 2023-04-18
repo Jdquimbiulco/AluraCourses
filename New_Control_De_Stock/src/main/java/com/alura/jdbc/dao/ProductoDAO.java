@@ -1,6 +1,7 @@
 package com.alura.jdbc.dao;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,7 +15,7 @@ import com.alura.jdbc.factory.ConnectionFactory;
 import com.alura.jdbc.modelo.Producto;
 
 public class ProductoDAO {
-
+//Data Access Object (DAO)
 	final private Connection connection;
 	
 	public ProductoDAO(Connection connection) {
@@ -86,6 +87,53 @@ public class ProductoDAO {
 				return resultado;
 			}
 		}catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public int eliminar(Integer id) {
+
+			try {
+				final PreparedStatement statement = connection.prepareStatement("DELETE FROM PRODUCTO WHERE ID = ?");
+				
+				try (statement) {
+					statement.setInt(1, id);
+					statement.execute();
+
+					return statement.getUpdateCount();
+				}
+
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
+		
+	}
+
+	public int modificar(String nombre, String descripcion, Integer id, Integer cantidad) {
+			try{
+				final PreparedStatement statement = connection.prepareStatement("UPDATE PRODUCTO SET " 
+					+ " NOMBRE = ? "
+					+ ", DESCRIPCION = ? " 
+					+ ", CANTIDAD = ? " + 
+					" WHERE ID = ? ");
+
+				try (statement) {
+					statement.setString(1, nombre);
+					statement.setString(2, descripcion);
+					statement.setInt(3, cantidad);
+					statement.setInt(4, id);
+
+					statement.execute();
+
+					int updateCount = statement.getUpdateCount();
+
+					return updateCount;
+
+				}
+			
+		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
 	}
