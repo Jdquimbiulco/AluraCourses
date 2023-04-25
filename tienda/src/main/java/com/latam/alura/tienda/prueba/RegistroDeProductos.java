@@ -6,22 +6,32 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import com.latam.alura.tienda.dao.CategoriaDao;
+import com.latam.alura.tienda.dao.ProductoDao;
+import com.latam.alura.tienda.modelo.Categoria;
 import com.latam.alura.tienda.modelo.Producto;
+import com.latam.alura.tienda.utils.JPAUtils;
 
 public class RegistroDeProductos {
 
 	public static void main(String[] args) {
-		Producto celular = new Producto();
-		celular.setNombre("Samsung");
-		celular.setDescripcion("Telefono Usado");
-		celular.setPrecio(new BigDecimal("1000"));
 		
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("tienda");
-		EntityManager em = factory.createEntityManager();
+		Categoria celulares = new Categoria("CELULARES");
+	
+		Producto celular = new Producto(
+				"Samsung","Telefono Usado",new BigDecimal("1000"),celulares);
 		
+		
+		EntityManager em = JPAUtils.getEntityManager();
+		
+		ProductoDao productoDao = new ProductoDao(em);
+		CategoriaDao categoriaDao = new CategoriaDao(em);
 		
 		em.getTransaction().begin();
-		em.persist(celular);
+		
+		categoriaDao.guardar(celulares);
+		productoDao.guardar(celular);
+		
 		em.getTransaction().commit();
 		em.close();
 		
